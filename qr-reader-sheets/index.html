@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Lector QR → Google Sheets</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lector QR → Google Sheets</h1>
+
+      <section class="scanner">
+        <video id="video" muted playsinline></video>
+        <canvas id="overlay"></canvas>
+      </section>
+
+      <section class="controls">
+        <div class="row">
+          <button id="btnStart">Iniciar</button>
+          <button id="btnStop" disabled>Detener</button>
+          <button id="btnSwitch">Cambiar cámara</button>
+        </div>
+        <div class="row">
+          <label>Formato de salida:</label>
+          <select id="format">
+            <option value="json">JSON</option>
+            <option value="csv">CSV</option>
+          </select>
+          <button id="btnSend" disabled>Enviar a Google Sheets</button>
+        </div>
+      </section>
+
+      <section class="result">
+        <h2>Resultado</h2>
+        <pre id="raw"></pre>
+
+        <h2>Transformado</h2>
+        <pre id="transformed"></pre>
+        <div id="status"></div>
+      </section>
+
+      <footer>
+        <small>Privacidad: el envío a Sheets requiere servidor o Apps Script para no exponer credenciales.</small>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
